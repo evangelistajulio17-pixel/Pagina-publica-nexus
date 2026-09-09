@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Cadastre-se para participar da Conexão Saúde." />
+  <title>Conexão Saúde | Nome da Empresa</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css" />
+  <!-- 
+    GOOGLE TAG MANAGER - deixa em UM lugar só a configuração de
+    Google Ads, Meta Ads (Facebook Pixel), Google Analytics etc.
+    TROQUE AQUI: troque GTM-XXXXXXX pelo ID real (igual nas outras 8 páginas).
+  -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
+  <!-- Fim Google Tag Manager -->
+</head>
+<body>
+  <!-- Google Tag Manager (noscript) - precisa ficar logo no início do <body> -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- Fim Google Tag Manager (noscript) -->
+
+  <!-- 
+    Esta navbar é uma CÓPIA da navbar do index.html. Como o site é
+    HTML simples (sem sistema de templates), toda página precisa da
+    sua própria cópia. Se mudar o menu em uma página, lembre de
+    replicar a mudança nas outras (index.html, conexao-saude.html,
+    seja-um-expositor.html, expositores.html) - são 5 cópias ao todo.
+  -->
+  <nav class="navbar" id="navbar">
+    <img src="https://i.postimg.cc/XXXXXXXX/logo.png" alt="Logo da empresa" class="navbar__logo" />
+
+    <button class="navbar__toggle" id="navbar-toggle" aria-label="Abrir menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+    <div class="navbar__links" id="navbar-links">
+      <!-- 
+        Item de menu com dropdown: um <button> que abre/fecha um painel
+        com links (controlado pelo script.js). Usar <button> em vez de
+        <a> aqui é importante para acessibilidade - ele não tem destino
+        próprio, só abre o submenu.
+      -->
+      <div class="nav-item nav-item--dropdown">
+        <button class="nav-btn nav-btn--pai" aria-expanded="false" aria-controls="dropdown-sobre">
+          Sobre <span class="nav-btn__seta">▾</span>
+        </button>
+        <div class="nav-dropdown" id="dropdown-sobre">
+          <a href="index.html#sobre" class="nav-dropdown__link">Quem Somos</a>
+          <a href="diferenciais.html" class="nav-dropdown__link">Diferenciais</a>
+        </div>
+      </div>
+
+      <!-- 
+        Dropdown "Mapas": cada opção leva para uma página do site
+        que mostra o PDF embutido (não abre/baixa o arquivo direto).
+        Os PDFs reais ficam guardados DENTRO da pasta do site (não em
+        hospedagem externa), em assets/mapas/ - veja
+        mapa-da-feira.html e pontos-turisticos.html para trocar os
+        nomes dos arquivos, se precisar.
+      -->
+      <div class="nav-item nav-item--dropdown">
+        <button class="nav-btn nav-btn--pai" aria-expanded="false" aria-controls="dropdown-mapas">
+          Mapas <span class="nav-btn__seta">▾</span>
+        </button>
+        <div class="nav-dropdown" id="dropdown-mapas">
+          <a href="mapa-da-feira.html" class="nav-dropdown__link">Mapa da Feira</a>
+          <a href="pontos-turisticos.html" class="nav-dropdown__link">Pontos Turísticos</a>
+        </div>
+      </div>
+
+
+      <div class="nav-item nav-item--dropdown">
+        <button class="nav-btn nav-btn--pai" aria-expanded="false" aria-controls="dropdown-categorias">
+          Categorias <span class="nav-btn__seta">▾</span>
+        </button>
+        <div class="nav-dropdown" id="dropdown-categorias">
+          <a href="rodada-de-negocios.html" class="nav-dropdown__link">Rodada de Negócios</a>
+          <a href="conexao-saude.html" class="nav-dropdown__link">Conexão Saúde</a>
+        </div>
+      </div>
+
+      <!-- 
+        Dropdown "Mídia": agrupa Fotos e Vídeos. Cada grupo tem o link
+        de âncora (volta pra seção rolando na home) e um link de "pasta"
+        por edição/ano - hoje só o exemplo de 2026; para adicionar mais
+        anos, copie o padrão de <span class="nav-dropdown__label"> +
+        <a class="nav-dropdown__link"> mais uma vez.
+      -->
+      <div class="nav-item nav-item--dropdown">
+        <button class="nav-btn nav-btn--pai" aria-expanded="false" aria-controls="dropdown-midia">
+          Mídia <span class="nav-btn__seta">▾</span>
+        </button>
+        <div class="nav-dropdown" id="dropdown-midia">
+          <span class="nav-dropdown__label">Fotos</span>
+          <a href="index.html#galeria" class="nav-dropdown__link">Ver galeria</a>
+          <a href="fotos-2026.html" class="nav-dropdown__link">Fotos 2026</a>
+
+          <span class="nav-dropdown__label">Vídeos</span>
+          <a href="videos-2026.html" class="nav-dropdown__link">Vídeos 2026</a>
+          <a href="aulas-rapidas.html" class="nav-dropdown__link">Aulas Rápidas</a>
+        </div>
+      </div>
+
+
+      <div class="nav-item nav-item--dropdown">
+        <button class="nav-btn nav-btn--pai" aria-expanded="false" aria-controls="dropdown-expositores">
+          Expositores <span class="nav-btn__seta">▾</span>
+        </button>
+        <div class="nav-dropdown" id="dropdown-expositores">
+          <a href="seja-um-expositor.html" class="nav-dropdown__link">Seja um Expositor</a>
+          <a href="expositores.html" class="nav-dropdown__link">Conheça nossos Expositores</a>
+        </div>
+      </div>
+
+      <!-- 
+        Dropdown "Congresso": lista de links para páginas de compra de
+        ingresso (cada congresso/edição pode ter sua própria página de
+        venda, geralmente de uma plataforma de ingressos externa).
+        TROQUE AQUI: troque as URLs de exemplo pelas reais. Copie um
+        <a class="nav-dropdown__link"> para adicionar mais congressos.
+      -->
+      <div class="nav-item nav-item--dropdown">
+        <button class="nav-btn nav-btn--pai" aria-expanded="false" aria-controls="dropdown-congresso">
+          Congresso <span class="nav-btn__seta">▾</span>
+        </button>
+        <div class="nav-dropdown" id="dropdown-congresso">
+          <a href="https://TROQUE-AQUI-URL-INGRESSOS-CONGRESSO-1.com.br" target="_blank" rel="noreferrer noopener" class="nav-dropdown__link">Congresso Nome 1 - Comprar ingresso</a>
+          <a href="https://TROQUE-AQUI-URL-INGRESSOS-CONGRESSO-2.com.br" target="_blank" rel="noreferrer noopener" class="nav-dropdown__link">Congresso Nome 2 - Comprar ingresso</a>
+        </div>
+      </div>
+
+      <a href="newsletter.html" class="nav-btn nav-btn--cta">Receber Comunicações</a>
+    </div>
+  </nav>
+
+
+  <!-- Cabeçalho simples da página (não é o hero completo da home) -->
+  <header class="page-header">
+    <h1>Conexão Saúde</h1>
+    <p>Preencha seus dados para participar da categoria Conexão Saúde.</p>
+  </header>
+
+
+  <!-- 
+    Formulário completo (não é modal aqui, fica direto na página).
+    Usa a mesma função de envio genérica (enviarFormularioPagina) e
+    os mesmos estilos de formulário já usados no modal do index.html.
+  -->
+  <form class="pagina-form" id="form-saude" onsubmit="return enviarFormularioPagina(event, 'status-saude')" novalidate>
+    <!-- Categoria fixa - esta página é dedicada só a esta categoria -->
+    <input type="hidden" name="categoria" value="Conexão Saúde" />
+
+    <label for="nome">Nome completo</label>
+    <input type="text" id="nome" name="nome" required autocomplete="name" />
+
+    <label for="email">E-mail</label>
+    <input type="email" id="email" name="email" required autocomplete="email" />
+
+    <label for="empresa">Empresa</label>
+    <input type="text" id="empresa" name="empresa" autocomplete="organization" />
+
+    <label for="cargo">Cargo</label>
+    <input type="text" id="cargo" name="cargo" autocomplete="organization-title" />
+
+    <label for="telefone">Telefone</label>
+    <input type="tel" id="telefone" name="telefone" autocomplete="tel" />
+
+    <!-- Honeypot: campo escondido que só robôs preenchem -->
+    <input type="text" name="site" class="honeypot" tabindex="-1" autocomplete="off" />
+
+    <label class="checkbox-linha">
+      <input type="checkbox" name="consentimento" required />
+      Concordo com a
+      <a href="politica-de-privacidade.html" target="_blank">Política de Privacidade</a>
+      e autorizo o uso dos meus dados para esta finalidade.
+    </label>
+
+    <button type="submit" class="btn btn--laranja">Enviar cadastro</button>
+
+    <div class="form__status" id="status-saude" role="status" aria-live="polite"></div>
+  </form>
+
+
+  <!-- Rodapé (mesma cópia do index.html) -->
+  <footer class="footer">
+    <div class="footer__grid">
+      <!-- 
+        COLUNA 1: ENDEREÇO E CONTATO
+        TROQUE AQUI: endereço, telefone e e-mail reais da empresa.
+      -->
+      <div class="footer__coluna">
+        <h3 class="footer__coluna__titulo">Endereço</h3>
+        <p class="footer__texto">
+          Rua Guajajaras, 755 - Centro<br>
+          Belo Horizonte/MG - CEP: 30180-105
+        </p>
+        <p class="footer__texto">Telefone: (00) 0000-0000</p>
+        <p class="footer__texto">E-mail: contato@suaempresa.com.br</p>
+      </div>
+
+      <!-- 
+        COLUNA 2: MAPA DO GOOGLE
+        TROQUE AQUI: troque "SEU-ENDERECO-AQUI" pelo endereço real
+        (pode deixar com espaços, o "+" no lugar de espaço é opcional -
+        navegadores modernos aceitam espaço direto na URL também).
+        Esse é um embed simples do Google Maps, sem precisar de chave
+        de API nem conta no Google Cloud.
+      -->
+      <div class="footer__coluna footer__coluna--mapa">
+        <iframe
+          class="footer__mapa"
+          src="https://www.google.com/maps?q=Rua+Guajajaras,+755+-+Centro,+Belo+Horizonte+-+MG&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Localização da empresa no mapa"
+        ></iframe>
+      </div>
+
+      <!-- 
+        COLUNA 3: MAPA DO SITE
+        Links rápidos para as principais seções/páginas.
+      -->
+      <div class="footer__coluna">
+        <h3 class="footer__coluna__titulo">Mapa do site</h3>
+        <nav class="footer__sitemap">
+          <a href="index.html#sobre">Sobre</a>
+          <a href="index.html#galeria">Galeria</a>
+          <a href="videos-2026.html">Vídeos</a>
+          <a href="expositores.html">Expositores</a>
+          <a href="newsletter.html">Receber Comunicações</a>
+        </nav>
+      </div>
+    </div>
+
+    <!-- 
+      REDES SOCIAIS (ícones monocromáticos)
+      TROQUE AQUI: troque cada URL de exemplo pelo link real do
+      perfil da empresa em cada rede.
+    -->
+    <div class="footer__redes">
+      <a href="https://TROQUE-AQUI-URL-FACEBOOK.com" target="_blank" rel="noreferrer noopener" aria-label="Facebook" class="footer__rede">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12Z"/></svg>
+      </a>
+      <a href="https://TROQUE-AQUI-URL-INSTAGRAM.com" target="_blank" rel="noreferrer noopener" aria-label="Instagram" class="footer__rede">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+      </a>
+      <a href="https://TROQUE-AQUI-URL-LINKEDIN.com" target="_blank" rel="noreferrer noopener" aria-label="LinkedIn" class="footer__rede">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm7 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.7c0-1.36-.02-3.1-1.9-3.1-1.9 0-2.2 1.48-2.2 3v5.8h-4V9Z"/></svg>
+      </a>
+      <a href="https://TROQUE-AQUI-URL-YOUTUBE.com" target="_blank" rel="noreferrer noopener" aria-label="YouTube" class="footer__rede">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.6 7.2s-.2-1.5-.8-2.2c-.8-.8-1.7-.8-2.1-.9C15.9 4 12 4 12 4h0s-3.9 0-6.7.1c-.4 0-1.3.1-2.1.9-.6.7-.8 2.2-.8 2.2S2.2 9 2.2 10.7v1.6C2.2 14 2.4 15.8 2.4 15.8s.2 1.5.8 2.2c.8.8 1.9.8 2.3.9 1.7.2 7.3.2 7.5.2 0 0 3.9 0 6.7-.1.4 0 1.3-.1 2.1-.9.6-.7.8-2.2.8-2.2s.2-1.7.2-3.5v-1.6c0-1.7-.2-3.5-.2-3.5ZM9.9 14.6V8.9l5.4 2.9-5.4 2.8Z"/></svg>
+      </a>
+      <a href="https://TROQUE-AQUI-URL-TIKTOK.com" target="_blank" rel="noreferrer noopener" aria-label="TikTok" class="footer__rede">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.6 3h-3.2v12.6a2.7 2.7 0 1 1-2.3-2.7v-3.2a5.9 5.9 0 1 0 5.5 5.9V9.3a7.6 7.6 0 0 0 4.4 1.4V7.5a4.4 4.4 0 0 1-4.4-4.5Z"/></svg>
+      </a>
+    </div>
+
+    <h2 class="footer__titulo">Nossos Expositores</h2>
+
+    <div class="letreiro">
+      <!-- 
+        Só UM conjunto de logos aqui - o script.js duplica ele
+        automaticamente quantas vezes forem necessárias para
+        preencher a largura da tela e fazer o loop sem "pulo",
+        mesmo que a lista de expositores cresça ou diminua depois.
+        TROQUE AQUI: use as MESMAS URLs que você colocou na seção
+        "Expositores" lá em cima, para manter consistência.
+      -->
+      <div class="letreiro__track" id="letreiro-track">
+        <a href="https://TROQUE-AQUI-URL-EXPOSITOR-1.com.br" target="_blank" rel="noreferrer noopener">
+          <img src="https://i.postimg.cc/FRG4MPSG/LOGO-SITE.jpg" alt="Corerai" loading="lazy" />
+        </a>
+        <a href="https://TROQUE-AQUI-URL-EXPOSITOR-2.com.br" target="_blank" rel="noreferrer noopener">
+          <img src="https://i.postimg.cc/76q4Qv5Q/LOGO-SITE-(1).jpg" alt="Flaxibag" loading="lazy" />
+        </a>
+        <a href="https://TROQUE-AQUI-URL-EXPOSITOR-3.com.br" target="_blank" rel="noreferrer noopener">
+          <img src="assets/expositores/logo3.png" alt="Expositor 3" loading="lazy" />
+        </a>
+        <a href="https://TROQUE-AQUI-URL-EXPOSITOR-4.com.br" target="_blank" rel="noreferrer noopener">
+          <img src="https://i.postimg.cc/j5vbp8f6/LOGO-SITE-(2).jpg" alt="TOTVS" loading="lazy" />
+        </a>
+        <a href="https://TROQUE-AQUI-URL-EXPOSITOR-5.com.br" target="_blank" rel="noreferrer noopener">
+          <img src="https://i.postimg.cc/JnKLfTXN/LOGO-SITE-(3).jpg" alt="Endobrax" loading="lazy" />
+        </a>
+        <a href="https://TROQUE-AQUI-URL-EXPOSITOR-6.com.br" target="_blank" rel="noreferrer noopener">
+          <img src="https://i.postimg.cc/85wS2yvB/LOGO-SITE-(4).jpg" alt="Trico" loading="lazy" />
+        </a>
+        <a href="https://TROQUE-AQUI-URL-EXPOSITOR-7.com.br" target="_blank" rel="noreferrer noopener">
+          <img src="https://i.postimg.cc/1Rjt4tgd/LOGO-SITE-(5).jpg" alt="Y-MED" loading="lazy" />
+        </a>
+      </div>
+    </div>
+
+    <p class="footer__copy">&copy; 2026 Nexus. Todos os direitos reservados.</p>
+  </footer>
+
+  <button class="voltar-topo" id="voltar-topo" onclick="window.scrollTo({top:0, behavior:'smooth'})" aria-label="Voltar ao topo">↑</button>
+
+  <script src="js/script.js" defer></script>
+</body>
+</html>

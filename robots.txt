@@ -1,0 +1,7 @@
+# TROQUE AQUI: troque "https://TROQUE-AQUI-SEU-DOMINIO.com.br" pelo
+# domínio real do site depois de publicado, nas 2 linhas abaixo.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://TROQUE-AQUI-SEU-DOMINIO.com.br/sitemap.xml

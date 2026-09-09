@@ -1,0 +1,1809 @@
+/* ============================================================
+   TOKENS DE DESIGN (VARIÁVEIS)
+   Tudo que define a identidade visual mora aqui. Trocar a cara
+   do site inteiro deveria ser possível mexendo só nesse bloco.
+============================================================ */
+:root {
+  /* Azuis - do mais escuro (hero, rodapé) ao mais claro (links, bordas) */
+  --azul-900: #0B2C4D;
+  --azul-700: #123F73;
+  --azul-500: #1B5FA8;
+  --azul-100: #E4EDF6;
+
+  /* Laranja - reservado para ação (botões, destaques, hover) */
+  --laranja-500: #FF7A29;
+  --laranja-600: #E85D04;
+
+  /* Neutros */
+  --cinza-50: #F4F6F8;
+  --cinza-200: #E2E7EC;
+  --cinza-500: #6B7684;
+  --texto: #1E2530;
+  --branco: #FFFFFF;
+
+  /* Tipografia */
+  --font-display: 'Sora', sans-serif;
+  --font-body: 'Inter', sans-serif;
+
+  /* Escala de forma e sombra */
+  --raio-sm: 8px;
+  --raio-md: 14px;
+  --raio-lg: 28px;
+  --sombra-sm: 0 2px 10px rgba(11, 44, 77, 0.08);
+  --sombra-md: 0 16px 40px rgba(11, 44, 77, 0.16);
+  --transicao: 0.25s ease;
+
+  --largura-conteudo: 1160px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  /* Quem pede menos movimento no sistema não vê o vídeo de fundo
+     autoplay do hero - só a cor sólida por trás dele */
+  .hero__video { display: none; }
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--cinza-50);
+  color: var(--texto);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  color: var(--azul-900);
+  line-height: 1.2;
+}
+
+img, video {
+  max-width: 100%;
+  display: block;
+}
+
+.container {
+  max-width: var(--largura-conteudo);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section {
+  padding: 88px 24px;
+  max-width: var(--largura-conteudo);
+  margin: 0 auto;
+}
+
+.section__eyebrow {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--laranja-600);
+  margin-bottom: 10px;
+}
+
+.section h2 {
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  margin-bottom: 16px;
+}
+
+.section__desc {
+  color: var(--cinza-500);
+  max-width: 620px;
+  margin-bottom: 32px;
+}
+
+
+/* ============================================================
+   ANIMAÇÃO DE ENTRADA (SCROLL REVEAL)
+   Elementos com a classe .reveal começam invisíveis/deslocados
+   e o JS adiciona ".reveal--ativo" quando entram na tela
+   (via IntersectionObserver, ver script.js) - bem mais leve
+   para o navegador do que ouvir o evento "scroll" direto.
+============================================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal--ativo {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+
+/* ============================================================
+   CABEÇALHO FIXO (NAVBAR "GLASS")
+   Fixo no topo. O JS adiciona "navbar--rolado" quando a página
+   rola, trocando o fundo transparente por um efeito vidro.
+============================================================ */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 24px;
+  transition: background-color var(--transicao), box-shadow var(--transicao), backdrop-filter var(--transicao);
+}
+
+.navbar--rolado {
+  background-color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: var(--sombra-sm);
+}
+
+.navbar__logo {
+  height: 100px;
+}
+
+.navbar__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+}
+
+.nav-btn {
+  text-decoration: none;
+  color: var(--branco);
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 9px 16px;
+  border-radius: 999px;
+  transition: background-color var(--transicao), color var(--transicao);
+  white-space: nowrap;
+}
+
+.navbar--rolado .nav-btn {
+  color: var(--azul-900);
+}
+
+.nav-btn:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.navbar--rolado .nav-btn:hover {
+  background-color: var(--azul-100);
+}
+
+.nav-btn--ativo {
+  background-color: var(--laranja-500);
+  color: var(--branco) !important;
+}
+
+.nav-btn--cta {
+  background-color: var(--laranja-500);
+  color: var(--branco) !important;
+}
+
+.nav-btn--cta:hover {
+  background-color: var(--laranja-600);
+}
+
+.navbar__toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.navbar__toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: var(--branco);
+  margin: 5px 0;
+  transition: background-color var(--transicao);
+}
+
+.navbar--rolado .navbar__toggle span {
+  background-color: var(--azul-900);
+}
+
+
+/* ============================================================
+   ITEM DE MENU COM DROPDOWN (Categorias, Expositores)
+============================================================ */
+.nav-item--dropdown {
+  position: relative; /* serve de referência para o dropdown se posicionar em cima dele no desktop */
+}
+
+.nav-btn--pai {
+  background: none;
+  border: none;
+  font-family: var(--font-body);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.nav-btn__seta {
+  font-size: 0.7rem;
+  transition: transform var(--transicao);
+}
+
+/* Gira a setinha quando o dropdown está aberto */
+.nav-item--dropdown[data-aberto="true"] .nav-btn__seta {
+  transform: rotate(180deg);
+}
+
+.nav-dropdown {
+  display: none; /* o JS troca para "block" ao abrir */
+  flex-direction: column;
+  min-width: 240px;
+  background-color: var(--branco);
+  border-radius: var(--raio-md);
+  box-shadow: var(--sombra-md);
+  padding: 8px;
+  overflow: hidden;
+}
+
+.nav-item--dropdown[data-aberto="true"] .nav-dropdown {
+  display: flex;
+}
+
+/* Rótulo de grupo dentro do dropdown (ex: "Fotos" agrupando os
+   links "Ver galeria" e "Fotos 2026" logo abaixo) - não é clicável,
+   só organiza visualmente quando o dropdown tem mais de uma categoria. */
+.nav-dropdown__label {
+  padding: 10px 14px 4px;
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--cinza-500);
+}
+
+.nav-dropdown__label:not(:first-child) {
+  margin-top: 6px;
+  border-top: 1px solid var(--cinza-200);
+  padding-top: 12px;
+}
+
+.nav-dropdown__link {
+  padding: 12px 14px;
+  border-radius: var(--raio-sm);
+  color: var(--azul-900);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: background-color var(--transicao);
+}
+
+.nav-dropdown__link:hover,
+.nav-dropdown__link:focus-visible {
+  background-color: var(--azul-100);
+}
+
+/* No desktop, o painel "flutua" abaixo do botão que abriu ele */
+@media (min-width: 861px) {
+  .nav-dropdown {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 0;
+  }
+}
+
+/* No mobile, o painel some do fluxo flutuante e passa a "abrir para
+   baixo" dentro do próprio menu deslizante, como um acordeão */
+@media (max-width: 860px) {
+  .nav-dropdown {
+    box-shadow: none;
+    background-color: var(--cinza-50);
+    margin-top: 4px;
+  }
+
+  .nav-dropdown__link {
+    text-align: center;
+  }
+}
+
+
+/* ============================================================
+   HERO (ABERTURA DA PÁGINA)
+   Fundo em degradê azul, grade sutil de fundo (remete a planta
+   de estande de feira), título grande, estatísticas e CTAs.
+   Tudo em CSS, sem depender de imagem pesada para carregar rápido.
+============================================================ */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 140px 24px 80px;
+  /* Fica como cor de fundo "de reserva": some atrás do vídeo assim que
+     ele carrega, mas continua visível se o vídeo falhar ou demorar. */
+  background-color: var(--azul-900);
+  overflow: hidden;
+  color: var(--branco);
+}
+
+/* ============================================================
+   VÍDEO DE FUNDO DO HERO (estilo "telão")
+   Usa o modo especial de background do Vimeo (?background=1), que
+   já vem sem controles, sem som, em loop automático - feito
+   exatamente para esse tipo de uso. O iframe é ampliado e
+   centralizado com o "truque do 16:9" para cobrir a tela toda
+   como um background-size:cover cobriria, sem distorcer o vídeo.
+============================================================ */
+.hero__video {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.hero__video iframe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 177.78vh;  /* 100vh * (16/9) */
+  height: 56.25vw;  /* 100vw * (9/16) */
+  min-width: 100%;
+  min-height: 100%;
+  transform: translate(-50%, -50%);
+  border: none;
+  pointer-events: none; /* o vídeo só decora o fundo - cliques passam direto para o conteúdo */
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(circle at 30% 30%, black, transparent 75%);
+  pointer-events: none;
+}
+
+.hero__conteudo {
+  position: relative;
+  z-index: 4;
+  max-width: var(--largura-conteudo);
+  margin: 0 auto;
+  width: 100%;
+}
+
+.hero__logo {
+  height: 46px;
+  margin-bottom: 28px;
+}
+
+.hero__titulo {
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  color: var(--branco);
+  max-width: 780px;
+  margin-bottom: 20px;
+  min-height: 1.2em; /* evita a página "pular" de altura quando o texto troca de tamanho */
+}
+
+/* Texto que troca sozinho dentro do título (ver TITULOS_HERO em
+   script.js) - o JS liga/desliga as classes abaixo para criar o
+   efeito de "slide" (a frase desliza pra fora e a próxima desliza
+   pra dentro), como uma transição de slide do PowerPoint. */
+.hero__titulo-texto {
+  display: inline-block;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* Frase atual saindo: desliza para a esquerda enquanto some */
+.hero__titulo-texto--saindo {
+  opacity: 0;
+  transform: translateX(-28px);
+}
+
+/* Próxima frase entrando: começa da direita, invisível - o JS
+   remove essa classe logo em seguida, e a transição definida em
+   .hero__titulo-texto anima ela suavemente até a posição normal */
+.hero__titulo-texto--entrando {
+  opacity: 0;
+  transform: translateX(28px);
+}
+
+.hero__subtitulo {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 560px;
+  margin-bottom: 36px;
+}
+
+.hero__acoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 56px;
+}
+
+.btn {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 15px 30px;
+  border-radius: var(--raio-sm);
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: transform var(--transicao), background-color var(--transicao), box-shadow var(--transicao);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn--laranja {
+  background-color: var(--laranja-500);
+  color: var(--branco);
+  box-shadow: var(--sombra-sm);
+}
+
+.btn--laranja:hover {
+  background-color: var(--laranja-600);
+  box-shadow: var(--sombra-md);
+}
+
+.btn--outline {
+  background-color: transparent;
+  border-color: rgba(255, 255, 255, 0.5);
+  color: var(--branco);
+}
+
+.btn--outline:hover {
+  border-color: var(--branco);
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.hero__stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.stat__numero {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--branco);
+}
+
+.stat__legenda {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 2px;
+}
+
+
+/* ============================================================
+   VÍDEO DEPOIMENTO (miniatura clicável + texto ao lado)
+============================================================ */
+.section--video-depoimento {
+  background-color: var(--branco);
+}
+
+.video-depoimento__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.video-depoimento__video {
+  position: relative;
+  display: block;
+  border-radius: var(--raio-md);
+  overflow: hidden;
+  box-shadow: var(--sombra-md);
+  aspect-ratio: 16 / 10;
+}
+
+.video-depoimento__video img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transicao);
+}
+
+.video-depoimento__video:hover img {
+  transform: scale(1.04);
+}
+
+.video-depoimento__play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background-color: var(--laranja-500);
+  color: var(--branco);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  box-shadow: var(--sombra-md);
+}
+
+.video-depoimento__assista {
+  position: absolute;
+  left: 16px;
+  bottom: 16px;
+  background-color: rgba(11, 44, 77, 0.85);
+  color: var(--branco);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 8px 14px;
+  border-radius: 999px;
+}
+
+.video-depoimento__texto h2 {
+  color: var(--laranja-600);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  margin-bottom: 16px;
+}
+
+.video-depoimento__texto p {
+  color: var(--cinza-500);
+  margin-bottom: 14px;
+}
+
+.video-depoimento__texto strong {
+  color: var(--azul-900);
+}
+
+@media (max-width: 800px) {
+  .video-depoimento__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* ============================================================
+   SOBRE - "JORNADA" (fundo escuro, imagem + texto + botão)
+============================================================ */
+.section--sobre-jornada {
+  background-color: var(--azul-900);
+  padding: 72px 24px;
+}
+
+.sobre-jornada__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+  max-width: var(--largura-conteudo);
+  margin: 0 auto;
+}
+
+.sobre-jornada__imagem {
+  width: 100%;
+  height: 100%;
+  min-height: 260px;
+  object-fit: cover;
+  border-radius: var(--raio-md);
+}
+
+.sobre-jornada__texto h2 {
+  color: var(--laranja-500);
+  font-size: clamp(1.6rem, 3.4vw, 2.2rem);
+  margin-bottom: 16px;
+}
+
+.sobre-jornada__texto p {
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 14px;
+}
+
+@media (max-width: 800px) {
+  .sobre-jornada__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* ============================================================
+   BLOG SOZINHO (imagem 3) - seção própria, com botão "ver todos"
+============================================================ */
+.section--blog-solo {
+  text-align: center;
+}
+
+.section--blog-solo .blog__grid {
+  text-align: left; /* os cards continuam alinhados à esquerda por dentro, só o cabeçalho da seção é centralizado */
+  margin-top: 32px;
+}
+
+.blog-solo__botao {
+  margin-top: 40px;
+}
+
+
+/* ============================================================
+   RESULTADOS - VERSÃO COMPACTA (campo pequeno abaixo do blog)
+============================================================ */
+.section--resultados-compacto {
+  padding: 48px 24px;
+  text-align: center;
+}
+
+.resultados-compacto__conteudo {
+  max-width: var(--largura-conteudo);
+  margin: 0 auto;
+}
+
+.resultados__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 24px;
+  margin-top: 20px;
+}
+
+.resultado__item {
+  padding: 12px;
+}
+
+/* Versão maior dos números, reaproveitando a classe .stat__numero
+   já usada no hero (mesma animação de contagem, só maior aqui) */
+.stat__numero--grande {
+  font-size: 2.4rem;
+}
+
+
+/* ============================================================
+   APOIADORES INSTITUCIONAIS (grade fixa, sem animação)
+============================================================ */
+/* Cada nível (Ouro/Prata/Bronze) tem seu próprio bloco com título
+   colorido, para separar visualmente a hierarquia dos apoiadores. */
+.apoiadores__nivel {
+  margin-top: 36px;
+}
+
+.apoiadores__nivel-titulo {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 800;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.apoiadores__nivel-titulo--ouro {
+  color: #B8860B; /* dourado escuro - legível em fundo branco */
+}
+
+.apoiadores__nivel-titulo--prata {
+  color: #8A8D91; /* cinza metálico */
+}
+
+.apoiadores__nivel-titulo--bronze {
+  color: #A9652E; /* bronze */
+}
+
+.apoiadores__grid {
+  display: grid;
+  gap: 24px;
+  align-items: center;
+  justify-items: center;
+}
+
+/* Ouro: poucas colunas, cards bem maiores - dá o maior destaque visual */
+.apoiadores__grid--ouro {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Prata: tamanho intermediário */
+.apoiadores__grid--prata {
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+/* Bronze: mais colunas, cards menores - o nível "de entrada" */
+.apoiadores__grid--bronze {
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+}
+
+.apoiador__card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 16px;
+  border-radius: var(--raio-sm);
+  background-color: var(--cinza-50);
+  transition: transform var(--transicao), background-color var(--transicao);
+}
+
+.apoiador__card img {
+  max-width: 100%;
+  object-fit: contain;
+  filter: grayscale(1);
+  opacity: 0.75;
+  transition: filter var(--transicao), opacity var(--transicao);
+}
+
+/* A altura da logo muda por nível - Ouro é visivelmente maior que Bronze */
+.apoiador__card--ouro {
+  padding: 28px 24px;
+}
+.apoiador__card--ouro img {
+  max-height: 90px;
+}
+
+.apoiador__card--prata img {
+  max-height: 66px;
+}
+
+.apoiador__card--bronze {
+  padding: 12px;
+}
+.apoiador__card--bronze img {
+  max-height: 46px;
+}
+
+.apoiador__card:hover {
+  transform: translateY(-3px);
+  background-color: var(--cinza-200);
+}
+
+.apoiador__card:hover img {
+  filter: grayscale(0);
+  opacity: 1;
+}
+
+
+/* ============================================================
+   ALTERNÂNCIA DE COR ENTRE SEÇÕES (azul / branco)
+   Aplicada direto no HTML: cada seção de conteúdo alterna entre
+   fundo branco e azul escuro (o mesmo tom do cabeçalho e do
+   rodapé), criando o ritmo visual pedido. Componentes que já são
+   "caixinhas brancas" próprias (cards de categoria, expositores,
+   posts do blog etc.) continuam legíveis nos dois casos, porque
+   eles têm fundo branco independente da seção; só o título/texto
+   direto da seção precisa trocar de cor no tom azul.
+============================================================ */
+/* 
+  Truque de "sangramento até a borda": a seção em si continua com
+  largura máxima limitada (--largura-conteudo) para o conteúdo não
+  ficar esparramado em telas muito largas, mas o FUNDO estica até
+  a borda da tela usando um box-shadow gigante (100vmax) recortado
+  pelo clip-path - assim a cor cobre a tela toda de ponta a ponta,
+  sem precisar mudar a estrutura do HTML.
+*/
+.tom-branco {
+  position: relative;
+  z-index: 0;
+  background-color: var(--branco);
+  box-shadow: 0 0 0 100vmax var(--branco);
+  clip-path: inset(0 -100vmax);
+}
+
+.tom-azul {
+  position: relative;
+  z-index: 0;
+  background-color: var(--azul-900);
+  box-shadow: 0 0 0 100vmax var(--azul-900);
+  clip-path: inset(0 -100vmax);
+}
+
+.tom-azul h2,
+.tom-azul .section__eyebrow,
+.tom-azul .section__desc {
+  color: var(--branco);
+}
+
+.tom-azul .section__desc {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+
+/* ============================================================
+   CABEÇALHO DE PÁGINA SECUNDÁRIA
+   Usado no topo de páginas como rodada-de-negocios.html,
+   conexao-saude.html, seja-um-expositor.html e expositores.html -
+   um "hero" mais simples que o da página inicial, só com título
+   e uma linha de apoio, considerando o espaço da navbar fixa.
+============================================================ */
+.page-header {
+  background: linear-gradient(160deg, var(--azul-900) 0%, var(--azul-700) 100%);
+  color: var(--branco);
+  padding: 150px 24px 60px;
+  text-align: center;
+}
+
+.page-header h1 {
+  color: var(--branco);
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  margin-bottom: 12px;
+}
+
+.page-header p {
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+/* Card branco centralizado usado para envolver os formulários
+   das páginas de cadastro dedicadas */
+.pagina-form {
+  max-width: 520px;
+  margin: -40px auto 80px; /* a margem negativa "sobe" o card por cima do page-header, efeito comum em páginas de formulário */
+  background: var(--branco);
+  border-radius: var(--raio-lg);
+  padding: 40px;
+  box-shadow: var(--sombra-md);
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 600px) {
+  .pagina-form {
+    padding: 28px 22px;
+    margin: -24px 16px 60px;
+  }
+}
+
+
+/* ============================================================
+   VISUALIZADOR DE PDF EMBUTIDO (páginas de mapa)
+   Mostra o PDF direto na página, usando o leitor de PDF nativo do
+   navegador dentro de um iframe - sem precisar de nenhuma
+   biblioteca externa.
+============================================================ */
+.mapa-pdf__wrapper {
+  width: 100%;
+  height: 80vh;
+  min-height: 500px;
+  border-radius: var(--raio-md);
+  overflow: hidden;
+  box-shadow: var(--sombra-md);
+  transition: transform var(--transicao), box-shadow var(--transicao);
+}
+
+/* Efeito de "pulo": a caixa inteira cresce um pouco e a sombra fica
+   mais forte ao passar o mouse por cima, dando destaque ao mapa. */
+.mapa-pdf__wrapper:hover {
+  transform: scale(1.015);
+  box-shadow: 0 24px 50px rgba(11, 44, 77, 0.28);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mapa-pdf__wrapper:hover {
+    transform: none;
+  }
+}
+
+.mapa-pdf__wrapper iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.mapa-pdf__acoes {
+  text-align: center;
+  margin-top: 24px;
+}
+
+@media (max-width: 600px) {
+  .mapa-pdf__wrapper {
+    height: 60vh;
+    min-height: 380px;
+  }
+}
+
+
+/* ============================================================
+   SEÇÃO DE TEXTO INSTITUCIONAL
+============================================================ */
+.section--sobre {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: start;
+}
+
+.section--sobre .section__texto p + p {
+  margin-top: 14px;
+  color: var(--cinza-500);
+}
+
+.diferenciais {
+  display: grid;
+  gap: 20px;
+}
+
+.diferencial {
+  background: var(--branco);
+  border-radius: var(--raio-md);
+  padding: 20px 22px;
+  box-shadow: var(--sombra-sm);
+  border-left: 4px solid var(--laranja-500);
+}
+
+.diferencial__titulo {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--azul-900);
+  margin-bottom: 4px;
+}
+
+.diferencial__desc {
+  font-size: 0.9rem;
+  color: var(--cinza-500);
+}
+
+@media (max-width: 800px) {
+  .section--sobre {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* ============================================================
+   BLOG (POSTS DO WORDPRESS)
+============================================================ */
+.blog__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.blog__status {
+  color: var(--cinza-500);
+  grid-column: 1 / -1; /* ocupa a largura toda enquanto é só uma mensagem de texto */
+}
+
+.tom-azul .blog__status {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.blog__card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--branco);
+  border-radius: var(--raio-md);
+  overflow: hidden;
+  box-shadow: var(--sombra-sm);
+  text-decoration: none;
+  color: inherit;
+  transition: transform var(--transicao), box-shadow var(--transicao);
+}
+
+.blog__card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--sombra-md);
+}
+
+.blog__card:focus-visible {
+  outline: 3px solid var(--azul-500);
+  outline-offset: 2px;
+}
+
+.blog__card__imagem {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.blog__card__conteudo {
+  padding: 20px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.blog__card__titulo {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  color: var(--azul-900);
+  /* limita o título a 2 linhas, cortando com "..." se for maior -
+     evita que um título longo desalinhe a grade de cards */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.blog__card__resumo {
+  font-size: 0.88rem;
+  color: var(--cinza-500);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.blog__card__data {
+  font-size: 0.78rem;
+  color: var(--laranja-600);
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+
+/* ============================================================
+   CATEGORIAS (CARDS DE CADASTRO)
+============================================================ */
+.categorias__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.card-categoria {
+  position: relative;
+  background-color: var(--branco);
+  border: none;
+  border-radius: var(--raio-md);
+  padding: 28px 24px;
+  text-align: left;
+  cursor: pointer;
+  overflow: hidden;
+  box-shadow: var(--sombra-sm);
+  transition: transform var(--transicao), box-shadow var(--transicao);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.card-categoria::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background-color: var(--laranja-500);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform var(--transicao);
+}
+
+.card-categoria:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--sombra-md);
+}
+
+.card-categoria:hover::before {
+  transform: scaleY(1);
+  transform-origin: top;
+}
+
+.card-categoria:focus-visible {
+  outline: 3px solid var(--azul-500);
+  outline-offset: 2px;
+}
+
+.card-categoria__titulo {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--azul-900);
+  font-size: 1.15rem;
+}
+
+.card-categoria__desc {
+  font-size: 0.9rem;
+  color: var(--cinza-500);
+}
+
+.card-categoria__seta {
+  margin-top: auto;
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--laranja-600);
+  font-size: 0.85rem;
+}
+
+
+/* ============================================================
+   MODAL
+============================================================ */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(11, 44, 77, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 300;
+  padding: 16px;
+}
+
+.modal[hidden] {
+  display: none;
+}
+
+.modal__conteudo {
+  background: var(--branco);
+  border-radius: var(--raio-md);
+  padding: 32px;
+  max-width: 440px;
+  width: 100%;
+  position: relative;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: var(--sombra-md);
+  animation: modal-entrar 0.25s ease;
+}
+
+@keyframes modal-entrar {
+  from { opacity: 0; transform: translateY(12px) scale(0.98); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .modal__conteudo { animation: none; }
+}
+
+.modal__fechar {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--cinza-500);
+  line-height: 1;
+  padding: 6px;
+}
+
+.modal__fechar:hover {
+  color: var(--texto);
+}
+
+form label {
+  display: block;
+  margin-top: 14px;
+  margin-bottom: 4px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--texto);
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="tel"] {
+  width: 100%;
+  padding: 11px 12px;
+  border: 2px solid var(--cinza-200);
+  border-radius: var(--raio-sm);
+  font-size: 1rem;
+  font-family: var(--font-body);
+  transition: border-color var(--transicao);
+}
+
+form input:focus-visible {
+  outline: 3px solid var(--azul-500);
+  outline-offset: 1px;
+  border-color: var(--azul-500);
+}
+
+.checkbox-linha {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 0.82rem;
+  font-weight: 400;
+  margin-top: 16px;
+  color: var(--cinza-500);
+}
+
+.checkbox-linha input {
+  margin-top: 4px;
+}
+
+form button[type="submit"] {
+  margin-top: 20px;
+  width: 100%;
+  justify-content: center;
+}
+
+form button[type="submit"]:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.form__status {
+  margin-top: 14px;
+  padding: 10px 14px;
+  border-radius: var(--raio-sm);
+  font-size: 0.85rem;
+  display: none;
+}
+
+.form__status--sucesso {
+  display: block;
+  background-color: #E5F6ED;
+  color: #1E7A46;
+}
+
+.form__status--erro {
+  display: block;
+  background-color: #FDEBEB;
+  color: #B3261E;
+}
+
+.honeypot {
+  position: absolute;
+  left: -9999px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+
+/* ============================================================
+   GALERIA (COM LIGHTBOX)
+============================================================ */
+.galeria__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 16px;
+}
+
+.galeria__item {
+  position: relative;
+  border-radius: var(--raio-md);
+  overflow: hidden;
+  cursor: pointer;
+  border: none;
+  padding: 0;
+  aspect-ratio: 4 / 3;
+}
+
+.galeria__item img,
+.galeria__item video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.galeria__item:hover img,
+.galeria__item:hover video {
+  transform: scale(1.06);
+}
+
+.galeria__item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 60%, rgba(11,44,77,0.55));
+  opacity: 0;
+  transition: opacity var(--transicao);
+}
+
+.galeria__item:hover::after,
+.galeria__item:focus-visible::after {
+  opacity: 1;
+}
+
+.galeria__item:focus-visible {
+  outline: 3px solid var(--azul-500);
+  outline-offset: 2px;
+}
+
+/* Ícone de "play" sobre a miniatura de itens de vídeo (ex: capa do Vimeo) */
+.galeria__item__play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: var(--laranja-500);
+  color: var(--branco);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  box-shadow: var(--sombra-md);
+  transition: transform var(--transicao);
+  z-index: 1; /* fica acima do ::after (camada escura no hover) */
+}
+
+.galeria__item:hover .galeria__item__play {
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(11, 44, 77, 0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 300;
+  padding: 24px;
+}
+
+.lightbox[hidden] {
+  display: none;
+}
+
+.lightbox__conteudo {
+  width: 90vw;
+  height: 85vh;
+  max-width: 90vw;
+  max-height: 85vh;
+  /* "contain" faz a foto crescer até caber bem na tela (sem cortar
+     nada). Como as fotos usadas são os arquivos originais (não
+     comprimidos por WhatsApp/rede social), a resolução real delas
+     deve ser alta o suficiente pra ficar grande sem ficar borrada. */
+  object-fit: contain;
+  border-radius: var(--raio-sm);
+}
+
+/* O player do Vimeo (iframe) precisa de largura/altura definidas em vez
+   de "max-width/max-height" como a imagem - por isso usamos uma
+   proporção 16:9 fixa, dentro de um tamanho confortável de tela cheia. */
+.lightbox__conteudo--video {
+  width: min(90vw, 960px);
+  aspect-ratio: 16 / 9;
+  height: auto;
+  border: none;
+}
+
+.lightbox__fechar {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  background: rgba(255,255,255,0.1);
+  border: none;
+  color: var(--branco);
+  font-size: 1.8rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.lightbox__fechar:hover {
+  background: rgba(255,255,255,0.2);
+}
+
+
+/* ============================================================
+   VÍDEOS DO YOUTUBE
+============================================================ */
+.section--videos {
+  position: relative;
+  z-index: 0;
+  background-color: var(--branco);
+  box-shadow: 0 0 0 100vmax var(--branco);
+  clip-path: inset(0 -100vmax);
+  max-width: var(--largura-conteudo);
+  margin: 0 auto;
+}
+
+.player-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--raio-md);
+  overflow: hidden;
+  margin-top: 8px;
+  background: var(--azul-900);
+}
+
+/* Subseção "Aulas Rápidas" dentro da seção Vídeos - reaproveita o
+   mesmo .player-wrapper de cima, só com um título próprio e mais
+   espaço acima para separar visualmente do player principal. */
+.subsecao-aulas-rapidas {
+  margin-top: 48px;
+  padding-top: 40px;
+  border-top: 1px solid var(--cinza-200);
+}
+
+.subsecao-aulas-rapidas h3 {
+  font-size: 1.2rem;
+  margin-bottom: 6px;
+}
+
+#youtube-player,
+#youtube-player-aulas {
+  width: 100%;
+  height: 100%;
+}
+
+
+/* ============================================================
+   NEWSLETTER
+============================================================ */
+.section--newsletter {
+  background: linear-gradient(135deg, var(--azul-900), var(--azul-500));
+  color: var(--branco);
+  border-radius: var(--raio-lg);
+  text-align: center;
+}
+
+.section--newsletter h2,
+.section--newsletter .section__eyebrow {
+  color: var(--branco);
+}
+
+.section--newsletter .section__desc {
+  color: rgba(255,255,255,0.8);
+  margin-inline: auto;
+}
+
+.form-newsletter {
+  max-width: 440px;
+  margin: 8px auto 0;
+  text-align: left;
+}
+
+.form-newsletter input[type="email"] {
+  width: 100%;
+  padding: 13px;
+  border-radius: var(--raio-sm);
+  border: none;
+}
+
+.form-newsletter .checkbox-linha,
+.form-newsletter .checkbox-linha a {
+  color: rgba(255,255,255,0.85);
+}
+
+.form-newsletter button {
+  width: 100%;
+  justify-content: center;
+}
+
+
+/* ============================================================
+   RODAPÉ / LETREIRO DE LOGOS
+============================================================ */
+.footer {
+  background-color: var(--azul-900);
+  color: var(--branco);
+  padding: 56px 0 32px;
+  text-align: center;
+}
+
+/* ============================================================
+   GRADE DO RODAPÉ: ENDEREÇO / MAPA / MAPA DO SITE
+============================================================ */
+.footer__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 40px;
+  max-width: var(--largura-conteudo);
+  margin: 0 auto 40px;
+  padding: 0 24px;
+  text-align: left;
+}
+
+.footer__coluna__titulo {
+  color: var(--branco);
+  font-size: 1.05rem;
+  margin-bottom: 14px;
+}
+
+.footer__texto {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+.footer__coluna--mapa {
+  display: flex;
+}
+
+.footer__mapa {
+  width: 100%;
+  min-height: 180px;
+  border: none;
+  border-radius: var(--raio-md);
+}
+
+.footer__sitemap {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer__sitemap a {
+  color: rgba(255, 255, 255, 0.75);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color var(--transicao);
+}
+
+.footer__sitemap a:hover {
+  color: var(--branco);
+}
+
+@media (max-width: 800px) {
+  .footer__grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .footer__sitemap {
+    align-items: center;
+  }
+}
+
+/* ============================================================
+   ÍCONES DE REDES SOCIAIS (monocromáticos)
+============================================================ */
+.footer__redes {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.footer__rede {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  color: rgba(255, 255, 255, 0.75);
+  transition: color var(--transicao), transform var(--transicao);
+}
+
+.footer__rede svg {
+  width: 22px;
+  height: 22px;
+}
+
+.footer__rede:hover {
+  color: var(--laranja-500);
+  transform: translateY(-3px);
+}
+
+.footer__titulo {
+  color: var(--branco);
+  margin-bottom: 24px;
+}
+
+.letreiro {
+  width: 100%;
+  overflow: hidden;
+  padding: 20px 0;
+  mask-image: linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
+}
+
+.letreiro__track {
+  display: flex;
+  align-items: center;
+  gap: 64px;
+  width: max-content;
+  animation: rolar-letreiro 55s linear infinite;
+}
+
+.letreiro:hover .letreiro__track {
+  animation-play-state: paused;
+}
+
+/* Cada logo agora é um link (<a>) - o estilo de imagem fica igual,
+   só aplicado dentro do link em vez de direto na img */
+.letreiro__track a {
+  display: block;
+  line-height: 0; /* remove o espacinho extra que <a> costuma criar embaixo de imagens */
+}
+
+.letreiro__track img {
+  height: 64px;
+  width: 130px; /* largura fixa - cria o "padrão" de caixa igual para todas as logos, mesmo com formatos originais diferentes */
+  object-fit: contain; /* a logo cabe inteira dentro da caixa, sem cortar nada, mantendo a proporção original */
+  opacity: 0.92;
+  transition: opacity var(--transicao), transform var(--transicao);
+  /* Fundo branco: como as logos têm fundo branco/opaco (não são PNG
+     transparente), uma caixa branca atrás garante que a logo apareça
+     inteira e legível sobre o azul escuro do rodapé, com nome da
+     marca visível - em vez de tentar "recolorir" a logo. */
+  background-color: var(--branco);
+  border-radius: var(--raio-sm);
+  padding: 8px 12px;
+}
+
+.letreiro__track a:hover img {
+  opacity: 1;
+  transform: scale(1.06);
+}
+
+.letreiro__track a:focus-visible {
+  outline: 2px solid var(--laranja-500);
+  outline-offset: 4px;
+}
+
+@keyframes rolar-letreiro {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+
+/* ============================================================
+   EXPOSITORES (GRADE FIXA DE LOGOS CLICÁVEIS)
+============================================================ */
+.expositores__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 16px;
+}
+
+.expositor__card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--branco);
+  border-radius: var(--raio-md);
+  padding: 24px 16px;
+  box-shadow: var(--sombra-sm);
+  transition: transform var(--transicao), box-shadow var(--transicao);
+  aspect-ratio: 4 / 3; /* mantém os cards com a mesma proporção, mesmo com logos de tamanhos variados */
+}
+
+.expositor__card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--sombra-md);
+}
+
+.expositor__card:focus-visible {
+  outline: 3px solid var(--azul-500);
+  outline-offset: 2px;
+}
+
+.expositor__card img {
+  max-width: 100%;
+  max-height: 100%;
+  min-width: 60px; /* evita que uma imagem quebrada fique minúscula e feia dentro do card */
+  min-height: 40px;
+  object-fit: contain;
+  /* Logos ficam em tons de cinza por padrão e ganham cor no hover -
+     um efeito comum em páginas de expositores/patrocinadores, que
+     deixa a grade mais uniforme visualmente. Remova esta linha (e a
+     seguinte) se preferir mostrar as logos sempre coloridas. */
+  filter: grayscale(1);
+  opacity: 0.75;
+  transition: filter var(--transicao), opacity var(--transicao);
+}
+
+.expositor__card:hover img {
+  filter: grayscale(0);
+  opacity: 1;
+}
+
+.footer__copy {
+  margin-top: 28px;
+  font-size: 0.85rem;
+  opacity: 0.65;
+}
+
+
+/* ============================================================
+   BOTÃO "VOLTAR AO TOPO"
+============================================================ */
+.voltar-topo {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: var(--laranja-500);
+  color: var(--branco);
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  box-shadow: var(--sombra-md);
+  z-index: 150;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(8px);
+  transition: opacity var(--transicao), transform var(--transicao), background-color var(--transicao);
+}
+
+.voltar-topo--visivel {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.voltar-topo:hover {
+  background-color: var(--laranja-600);
+}
+
+
+/* ============================================================
+   RESPONSIVO
+============================================================ */
+@media (max-width: 860px) {
+  .navbar__toggle {
+    display: block;
+  }
+
+  .navbar__links {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: min(78vw, 320px);
+    background: var(--branco);
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    padding: 24px;
+    transform: translateX(100%);
+    transition: transform var(--transicao);
+    box-shadow: var(--sombra-md);
+  }
+
+  .navbar__links.navbar__links--aberto {
+    transform: translateX(0);
+  }
+
+  .navbar__links .nav-btn {
+    color: var(--azul-900);
+    text-align: center;
+    padding: 14px;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    padding-top: 110px;
+  }
+
+  .hero__stats {
+    gap: 24px;
+  }
+
+  .section {
+    padding: 64px 20px;
+  }
+
+  .section h2 {
+    font-size: 1.6rem;
+  }
+}

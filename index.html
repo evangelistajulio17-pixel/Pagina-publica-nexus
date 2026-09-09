@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- TROQUE AQUI: descrição real, até uns 155 caracteres - é o texto que aparece embaixo do link no Google -->
+  <meta name="description" content="Feiras e eventos de negócios: cadastre-se em nossas categorias e acompanhe novidades." />
+  <!-- Diz pro Google que essa é a versão "oficial" desta página (evita punição por conteúdo duplicado, ex: com/sem "www") -->
+  <link rel="canonical" href="https://TROQUE-AQUI-SEU-DOMINIO.com.br/" />
+  <!-- Permite indexação normal - troque para "noindex, nofollow" só se quiser ESCONDER a página do Google -->
+  <meta name="robots" content="index, follow" />
+  <title>Nome da Empresa | Feiras e Eventos</title>
+
+  <!-- 
+    ÍCONE DA ABA DO NAVEGADOR (favicon)
+    TROQUE AQUI: hospede um favicon.png (quadrado, 512x512px é um
+    tamanho seguro) no PostImages e cole a URL aqui.
+  -->
+  <link rel="icon" type="image/png" href="https://i.postimg.cc/XXXXXXXX/favicon.png" />
+
+  <!-- 
+    OPEN GRAPH - controla como o link do site aparece quando
+    compartilhado no WhatsApp, Facebook, LinkedIn etc (título, imagem
+    e descrição do card de preview). Sem isso, a rede social tenta
+    "adivinhar" e o resultado costuma ficar feio.
+    TROQUE AQUI: og:url pelo domínio real, og:image por uma imagem
+    hospedada no PostImages (1200x630px é o tamanho ideal).
+  -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Nome da Empresa" />
+  <meta property="og:title" content="Nome da Empresa | Feiras e Eventos" />
+  <meta property="og:description" content="Feiras e eventos de negócios: cadastre-se em nossas categorias e acompanhe novidades." />
+  <meta property="og:image" content="https://i.postimg.cc/XXXXXXXX/imagem-compartilhamento.jpg" />
+  <meta property="og:url" content="https://TROQUE-AQUI-SEU-DOMINIO.com.br/" />
+  <meta property="og:locale" content="pt_BR" />
+
+  <!-- TWITTER CARD - mesma ideia do Open Graph, mas específico pro X/Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Nome da Empresa | Feiras e Eventos" />
+  <meta name="twitter:description" content="Feiras e eventos de negócios: cadastre-se em nossas categorias e acompanhe novidades." />
+  <meta name="twitter:image" content="https://i.postimg.cc/XXXXXXXX/imagem-compartilhamento.jpg" />
+
+  <!-- 
+    preconnect avisa o navegador com antecedência que vamos buscar
+    algo em fonts.googleapis.com/fonts.gstatic.com, economizando
+    tempo de conexão (DNS + TLS) quando as fontes forem baixadas.
+    font-display=swap evita que o texto fique invisível enquanto
+    a fonte carrega (mostra a fonte padrão do sistema até trocar).
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Preconnect com o Vimeo - deixa a conexão (DNS/TLS) já pronta
+       antes do vídeo de fundo do hero ser carregado, economizando
+       um tempo precioso na hora de exibir o vídeo. -->
+  <link rel="preconnect" href="https://player.vimeo.com">
+  <link rel="preconnect" href="https://i.vimeocdn.com">
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- 
+    DADOS ESTRUTURADOS (Schema.org) - "ensina" o Google a entender
+    que isso é um Evento, com data/local, e pode mostrar isso de
+    forma especial no resultado de busca (rich snippet), com data
+    e local direto na página de resultados.
+    TROQUE AQUI: nome, datas, endereço e URL reais do evento.
+  -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "name": "Nome da Feira 2027",
+    "startDate": "2027-08-10",
+    "endDate": "2027-08-12",
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+    "eventStatus": "https://schema.org/EventScheduled",
+    "location": {
+      "@type": "Place",
+      "name": "Expominas",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Rua Guajajaras, 755",
+        "addressLocality": "Belo Horizonte",
+        "addressRegion": "MG",
+        "postalCode": "30180-105",
+        "addressCountry": "BR"
+      }
+    },
+    "organizer": {
+      "@type": "Organization",
+      "name": "Nome da Empresa",
+      "url": "https://TROQUE-AQUI-SEU-DOMINIO.com.br/"
+    }
+  }
+  </script>
+
+  <!-- 
+    GOOGLE TAG MANAGER - deixa em UM lugar só a configuração de
+    Google Ads, Meta Ads (Facebook Pixel), Google Analytics etc,
+    sem precisar mexer no código do site toda vez que uma campanha
+    nova precisar de uma tag diferente.
+    TROQUE AQUI: troque GTM-XXXXXXX pelo ID real da sua conta do
+    Google Tag Manager (tagmanager.google.com, é grátis).
+    IMPORTANTE: esse trecho precisa estar em TODAS as 9 páginas,
+    exatamente igual (é como o menu/rodapé - duplicado de propósito
+    porque o site não usa sistema de templates).
+  -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
+  <!-- Fim Google Tag Manager -->
+</head>
+<body>
+  <!-- 
+    GOOGLE TAG MANAGER (noscript) - versão de reserva para quem
+    navega com JavaScript desativado (raro, mas o GTM recomenda).
+    Precisa ficar logo no início do <body>.
+  -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- Fim Google Tag Manager (noscript) -->
+
+  <!-- ======================================================
+       NAVBAR FIXA
+       Fica sempre visível. O JS (script.js) faz duas coisas
+       aqui: 1) troca o fundo para "vidro" quando rola a página
+       2) marca o link da seção atual como ativo (scrollspy)
+  ======================================================= -->
+  <nav class="navbar" id="navbar">
+    <!-- 
+      TROQUE AQUI: cole a URL da logo hospedada no PostImages (postimg.cc).
+      Veja no README como pegar essa URL após subir a imagem lá.
+    -->
+    <img src="https://i.postimg.cc/FzMmwnqX/channels4-profile.jpg" alt="Logo da empresa" class="navbar__logo" />
+
+    <!-- Botão hambúrguer, só some/some conforme o CSS em telas pequenas -->
+    <button class="navbar__toggle" id="navbar-toggle" aria-label="Abrir menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+    <div class="navbar__links" id="navbar-links">
+      <!-- 
+        Item de menu com dropdown: um <button> que abre/fecha um painel
+        com links (controlado pelo script.js). Usar <button> em vez de
+        <a> aqui é importante para acessibilidade - ele não tem destino
+        próprio, só abre o submenu.
+      -->
+      <div class="nav-item nav-item--dropdown">
+        <button class="nav-btn nav-btn--pai" aria-expanded="false" aria-controls="dropdown-sobre">
+          Sobre <span class="nav-btn__seta">▾</span>
+        </button>
+        <div class="nav-dropdown" id="dropdown-sobre">
+          <a href="#sobre" class="nav-dropdown__link">Quem Somos</a>
+          <a href="diferenciais.html" class="nav-dropdown__link">Diferenciais</a>
+        </div>
+      </div>
+
+      <!-- 
+        Dropdown "Mapas": cada opção leva para uma página do site
+        que mostra o PDF embutido (não abre/baixa o arquivo direto).
+        Os PDFs reais ficam guardados DENTRO da pasta do site (não em
+        hospedagem externa), em assets/mapas/ - veja
+        mapa-da-feira.html e pontos-turisticos.html para trocar os
+        nomes dos arquivos, se precisar.
+      -->
+      <div class="nav-item nav-item--dropdown">
+        <button class="nav-btn nav-btn--pai" aria-expanded="false" aria-controls="dropdown-mapas">
+          Mapas <span class="nav-btn__seta">▾</span>
+        </button>
+        <div class="nav-dropdown" id="dropdown-mapas">
+          <a href="mapa-da-feira.html" class="nav-dropdown__link">Mapa da Feira</a>
+          <a href="pontos-turisticos.html" class="nav-dropdown__link">Pontos Turísticos</a>
+        </div>
+      </div>
+
+
+      <div class="nav-item nav-item--dropdown">
+        <button class="nav-btn nav-btn--pai" aria-expanded="false" aria-controls="dropdown-categorias">
+          Categorias <span class="nav-btn__seta">▾</span>
+        </button>
+        <div class="nav-dropdown" id="dropdown-categorias">
+          <a href="rodada-de-negocios.html" class="nav-dropdown__link">Rodada de Negócios</a>
+          <a href="conexao-saude.html" class="nav-dropdown__link">Conexão Saúde</a>
+        </div>
+      </div>
+
+      <!-- 
+        Dropdown "Mídia": agrupa Fotos e Vídeos. Cada grupo tem o link
+        de âncora (volta pra seção rolando na home) e um link de "pasta"
+        por edição/ano - hoje só o exemplo de 2026; para adicionar mais
+        anos, copie o padrão de <span class="nav-dropdown__label"> +
+        <a class="nav-dropdown__link"> mais uma vez.
+      -->
+      <div class="nav-item nav-item--dropdown">
+        <button class="nav-btn nav-btn--pai" aria-expanded="false" aria-controls="dropdown-midia">
+          Mídia <span class="nav-btn__seta">▾</span>
+        </button>
+        <div class="nav-dropdown" id="dropdown-midia">
+          <span class="nav-dropdown__label">Fotos</span>
+          <a href="#galeria" class="nav-dropdown__link">Ver galeria</a>
+          <a href="fotos-2026.html" class="nav-dropdown__link">Fotos 2026</a>
+
+          <span class="nav-dropdown__label">Vídeos</span>
+          <a href="videos-2026.html" class="nav-dropdown__link">Vídeos 2026</a>
+          <a href="aulas-rapidas.html" class="nav-dropdown__link">Aulas Rápidas</a>
+        </div>
+      </div>
+
+
+      <div class="nav-item nav-item--dropdown">
+        <button class="nav-btn nav-btn--pai" aria-expanded="false" aria-controls="dropdown-expositores">
+          Expositores <span class="nav-btn__seta">▾</span>
+        </button>
+        <div class="nav-dropdown" id="dropdown-expositores">
+          <a href="seja-um-expositor.html" class="nav-dropdown__link">Seja um Expositor</a>
+          <a href="expositores.html" class="nav-dropdown__link">Conheça nossos Expositores</a>
+        </div>
+      </div>
+
+      <!-- 
+        Dropdown "Congresso": lista de links para páginas de compra de
+        ingresso (cada congresso/edição pode ter sua própria página de
+        venda, geralmente de uma plataforma de ingressos externa).
+        TROQUE AQUI: troque as URLs de exemplo pelas reais. Copie um
+        <a class="nav-dropdown__link"> para adicionar mais congressos.
+      -->
+      <div class="nav-item nav-item--dropdown">
+        <button class="nav-btn nav-btn--pai" aria-expanded="false" aria-controls="dropdown-congresso">
+          Congresso <span class="nav-btn__seta">▾</span>
+        </button>
+        <div class="nav-dropdown" id="dropdown-congresso">
+          <a href="https://TROQUE-AQUI-URL-INGRESSOS-CONGRESSO-1.com.br" target="_blank" rel="noreferrer noopener" class="nav-dropdown__link">Congresso Nome 1 - Comprar ingresso</a>
+          <a href="https://TROQUE-AQUI-URL-INGRESSOS-CONGRESSO-2.com.br" target="_blank" rel="noreferrer noopener" class="nav-dropdown__link">Congresso Nome 2 - Comprar ingresso</a>
+        </div>
+      </div>
+
+      <a href="newsletter.html" class="nav-btn nav-btn--cta">Receber Comunicações</a>
+    </div>
+  </nav>
+
+
+  <!-- ======================================================
+       HERO (ABERTURA)
+       Substitui o banner simples: mais impacto visual e já
+       comunica números que reforçam a credibilidade do evento.
+  ======================================================= -->
+  <header class="hero">
+    <!-- 
+      VÍDEO DE FUNDO (estilo "telão") - toca em loop, mudo, sem
+      controles, usando o modo background do Vimeo. TROQUE AQUI:
+      troque o ID na constante VIMEO_HERO_ID em js/script.js pelo
+      ID real do vídeo (o número que aparece em vimeo.com/123456789).
+      No Vimeo, deixe a privacidade do vídeo como "Ocultar de
+      vimeo.com" (não "privado"), senão o embed não funciona fora
+      do próprio site do Vimeo.
+
+      Esta div começa VAZIA de propósito - o JS (script.js) insere
+      o iframe do vídeo só depois que a página essencial (texto,
+      fontes, menu) já carregou, para o vídeo não competir por
+      banda com o que a pessoa precisa ver primeiro. Enquanto isso,
+      o fundo azul sólido (definido no CSS do .hero) fica visível.
+    -->
+    <div class="hero__video" id="hero-video" aria-hidden="true"></div>
+
+    <div class="hero__conteudo">
+
+      <h1 class="hero__titulo">
+        <!-- 
+          O texto aqui dentro é só o que aparece ANTES do JS carregar
+          (ex: se o JavaScript falhar). Quem realmente controla a
+          troca das frases é a lista TITULOS_HERO em js/script.js -
+          TROQUE AQUI as frases lá, não aqui.
+        -->
+        <span id="hero-titulo-rotativo" class="hero__titulo-texto">O ponto de encontro dos negócios do setor</span>
+      </h1>
+      <p class="hero__subtitulo">
+        <!-- TROQUE AQUI: subtítulo explicando a proposta em 1-2 frases -->
+        Conectamos empresas expositoras e visitantes qualificados em um só lugar.
+        Participe das rodadas de negócios e fique por dentro de tudo.
+      </p>
+
+      <div class="hero__acoes">
+        <a href="rodada-de-negocios.html" class="btn btn--laranja">Quero me cadastrar</a>
+        <a href="#sobre" class="btn btn--outline">Saiba mais</a>
+      </div>
+
+      <!-- 
+        Estatísticas animadas. O atributo data-alvo é o número final;
+        o JS conta de 0 até ele quando o hero entra na tela.
+        TROQUE AQUI: os números reais do seu evento.
+      -->
+      <div class="hero__stats">
+        <div>
+          <div class="stat__numero" data-alvo="120">0</div>
+          <div class="stat__legenda">Expositores</div>
+        </div>
+        <div>
+          <div class="stat__numero" data-alvo="8000">0</div>
+          <div class="stat__legenda">Visitantes</div>
+        </div>
+        <div>
+          <div class="stat__numero" data-alvo="15">0</div>
+          <div class="stat__legenda">Edições realizadas</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+  <!-- ======================================================
+       SEÇÃO: VÍDEO DEPOIMENTO
+       Vídeo em destaque à esquerda (miniatura clicável, abre o
+       YouTube numa nova aba) + texto de apresentação à direita.
+       TROQUE AQUI: a URL do vídeo no YouTube, a miniatura, e o
+       texto de apresentação.
+  ======================================================= -->
+  <section id="video-depoimento" class="section section--video-depoimento tom-branco reveal">
+    <div class="video-depoimento__grid">
+      <a href="https://TROQUE-AQUI-URL-VIDEO-YOUTUBE.com" target="_blank" rel="noreferrer noopener" class="video-depoimento__video">
+        <img src="https://i.postimg.cc/XXXXXXXX/miniatura-video-depoimento.jpg" alt="Vídeo institucional" loading="lazy" />
+        <span class="video-depoimento__play">▶</span>
+        <span class="video-depoimento__assista">▶ Assista no YouTube</span>
+      </a>
+
+      <div class="video-depoimento__texto">
+        <h2>O maior hub de conteúdos do setor</h2>
+        <!-- TROQUE AQUI: texto real de apresentação da empresa/evento -->
+        <p>A feira reúne as <strong>principais soluções do setor</strong> e o maior conteúdo em um só lugar. Aqui, grandes marcas e especialistas se encontram para impulsionar negócios, trocar conhecimento e moldar o futuro do mercado.</p>
+        <p>Seja para explorar as mais inovadoras tecnologias, acompanhar a grade de conteúdo ou se atualizar com insights estratégicos de grandes especialistas, o evento é o hub essencial para quem busca <strong>integração</strong>, <strong>oportunidades</strong> e <strong>crescimento</strong>.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ======================================================
+       SEÇÃO: SOBRE (estilo "jornada", imagem + texto + botão)
+  ======================================================= -->
+  <section id="sobre" class="section--sobre-jornada reveal">
+    <div class="sobre-jornada__grid">
+      <!-- TROQUE AQUI: imagem real (ex: foto de palco/palestra do evento) -->
+      <img src="https://i.postimg.cc/XXXXXXXX/jornada.jpg" alt="" class="sobre-jornada__imagem" loading="lazy" />
+
+      <div class="sobre-jornada__texto">
+        <h2>Uma jornada inédita para os líderes do setor</h2>
+        <!-- TROQUE AQUI: texto real sobre a proposta do evento -->
+        <p>Conectando conteúdos de alta qualidade a experiências estratégicas para networking e geração de negócios, o evento emerge como o principal encontro corporativo para reunir gestores, decisores e especialistas do setor.</p>
+        <p>Com uma programação repleta de conteúdo técnico e gerencial, apresentando através das principais marcas as inovações e tendências do mercado na exposição.</p>
+        <a href="#depoimentos" class="btn btn--laranja">Saiba Mais</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ======================================================
+       SEÇÃO: DEPOIMENTOS (texto institucional antigo + diferenciais)
+       Esse conteúdo é o que antes ficava na seção "Sobre" -
+       manteve tudo igual, só desceu de posição na página.
+  ======================================================= -->
+  <section id="depoimentos" class="section section--sobre tom-branco reveal">
+    <div class="section__texto">
+      <span class="section__eyebrow">Quem somos</span>
+      <h2>Na voz de quem viveu a experiência</h2>
+      <!-- TROQUE AQUI: texto real sobre a empresa -->
+      <p>Veja o que dizem expositores, visitantes e palestrantes que viveram a última edição!.</p>
+      <p>A próxima já está confirmada: 10 a 12 de agosto de 2027, no Expominas.</p>
+      <p>Prepare-se para três dias de inovação, negócios e conexões que transformam o setor da saúde.</p>
+    </div>
+
+    <!-- Cartões de diferenciais - troque por pontos reais da empresa -->
+    <div class="diferenciais">
+      <div class="diferencial">
+        <div class="diferencial__titulo">Networking qualificado</div>
+        <div class="diferencial__desc">Rodadas de negócios direcionadas ao seu setor.</div>
+      </div>
+      <div class="diferencial">
+        <div class="diferencial__titulo">Conteúdo especializado</div>
+        <div class="diferencial__desc">Palestras e painéis com quem entende do assunto.</div>
+      </div>
+      <div class="diferencial">
+        <div class="diferencial__titulo">Estrutura completa</div>
+        <div class="diferencial__desc">Do credenciamento ao pós-evento, tudo organizado.</div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ======================================================
+       SEÇÃO: GALERIA (COM LIGHTBOX)
+  ======================================================= -->
+  <section id="galeria" class="section section--galeria tom-azul reveal">
+    <span class="section__eyebrow">Momentos</span>
+    <h2>Galeria</h2>
+    <p class="section__desc">Fotos e vídeos das últimas edições do evento.</p>
+
+    <div class="galeria__grid" id="galeria-grid">
+      <!-- 
+        Cada item é um <button> (não uma <img> solta) para o
+        lightbox funcionar também por teclado/leitor de tela.
+        loading="lazy" = a imagem só baixa quando estiver perto
+        de aparecer na tela, o que acelera o carregamento inicial.
+      -->
+      <button class="galeria__item" onclick="abrirLightbox('https://i.postimg.cc/06VGsK13/LEO7886.jpg', 'imagem')">
+        <img src="https://i.postimg.cc/06VGsK13/LEO7886.jpg" alt="Foto do evento 1" loading="lazy" />
+      </button>
+      <button class="galeria__item" onclick="abrirLightbox('https://i.postimg.cc/yJLhH3Cf/LEO7904.jpg', 'imagem')">
+        <img src="https://i.postimg.cc/yJLhH3Cf/LEO7904.jpg" alt="Foto do evento 2" loading="lazy" />
+      </button>
+      <button class="galeria__item" onclick="abrirLightbox('https://i.postimg.cc/qtJcSXSX/LEO7918.jpg', 'imagem')">
+        <img src="https://i.postimg.cc/qtJcSXSX/LEO7918.jpg" alt="Foto do evento 3" loading="lazy" />
+      </button>
+
+      <!-- 
+        Item de vídeo: como o Vimeo não fornece um arquivo .mp4 direto
+        (só um player incorporado), mostramos uma miniatura (imagem
+        estática hospedada no PostImages) com um ícone de play por cima.
+        Ao clicar, o lightbox abre o player do Vimeo de verdade.
+        TROQUE AQUI: troque a miniatura E o ID do vídeo no link do Vimeo
+        (o número que aparece na URL do vídeo, ex: vimeo.com/123456789).
+      -->
+      <button class="galeria__item galeria__item--video" onclick="abrirLightbox('https://player.vimeo.com/video/SEU_ID_VIMEO', 'video')">
+        <img src="https://i.postimg.cc/XXXXXXXX/miniatura-video1.jpg" alt="Vídeo do evento" loading="lazy" />
+        <span class="galeria__item__play">▶</span>
+      </button>
+
+      <button class="galeria__item" onclick="abrirLightbox('https://i.postimg.cc/XZsKbB6D/LEO7923.jpg', 'imagem')">
+        <img src="https://i.postimg.cc/XZsKbB6D/LEO7923.jpg" alt="Foto do evento 4" loading="lazy" />
+      </button>
+      <button class="galeria__item" onclick="abrirLightbox('https://i.postimg.cc/B8m50PfV/LEO7930.jpg', 'imagem')">
+        <img src="https://i.postimg.cc/B8m50PfV/LEO7930.jpg" alt="Foto do evento 5" loading="lazy" />
+      </button>
+      <button class="galeria__item" onclick="abrirLightbox('https://i.postimg.cc/1gv0QVZR/LEO7961.jpg', 'imagem')">
+        <img src="https://i.postimg.cc/1gv0QVZR/LEO7961.jpg" alt="Foto do evento 6" loading="lazy" />
+      </button>
+      <button class="galeria__item" onclick="abrirLightbox('https://i.postimg.cc/R6q7VCMm/LEO7980.jpg', 'imagem')">
+        <img src="https://i.postimg.cc/R6q7VCMm/LEO7980.jpg" alt="Foto do evento 7" loading="lazy" />
+      </button>
+      <button class="galeria__item" onclick="abrirLightbox('https://i.postimg.cc/cg6R41sd/LEO8051.jpg', 'imagem')">
+        <img src="https://i.postimg.cc/cg6R41sd/LEO8051.jpg" alt="Foto do evento 8" loading="lazy" />
+      </button>
+      <!-- Copie um dos <button> acima para adicionar mais itens -->
+    </div>
+  </section>
+
+  <!-- Lightbox: some por padrão, o JS mostra ao clicar num item da galeria -->
+  <div class="lightbox" id="lightbox" hidden>
+    <button class="lightbox__fechar" onclick="fecharLightbox()" aria-label="Fechar">&times;</button>
+    <div id="lightbox-conteudo"></div>
+  </div>
+
+
+
+
+  <!-- ======================================================
+       SEÇÃO: BLOG (sozinha, com destaque + botão "ver todos")
+       O JS busca os posts automaticamente pela API do WordPress
+       (mesma lógica de antes - ver função carregarPostsBlog em
+       js/script.js).
+  ======================================================= -->
+  <section id="blog" class="section section--blog-solo tom-branco reveal">
+    <span class="section__eyebrow">Conteúdo</span>
+    <h2>Confira as últimas notícias no blog</h2>
+    <p class="section__desc">Últimas publicações da nossa equipe de marketing.</p>
+
+    <!-- 
+      Esta grade começa vazia - o JS preenche ela com os posts
+      reais assim que a página carrega. Enquanto isso, mostramos
+      uma mensagem de carregando.
+    -->
+    <div class="blog__grid" id="blog-grid">
+      <p class="blog__status" id="blog-status">Carregando publicações...</p>
+    </div>
+
+    <!-- TROQUE AQUI: troque a URL abaixo pela URL real do seu blog no WordPress -->
+    <div class="blog-solo__botao">
+      <a href="https://TROQUE-AQUI-A-URL-DO-SEU-WORDPRESS.com.br" target="_blank" rel="noreferrer noopener" class="btn btn--laranja">Acesse todos os conteúdos</a>
+    </div>
+  </section>
+
+
+  <!-- ======================================================
+       SEÇÃO: FEIRA EM NÚMEROS (campo compacto, logo abaixo do blog)
+       Os números sobem de 0 até o valor real e depois ficam parados
+       (função animarContador em script.js) - toda vez que a página
+       é carregada, a contagem roda de novo do zero.
+       TROQUE AQUI: os números reais em data-alvo. O terceiro item
+       usa data-tipo="moeda" para formatar como dinheiro (R$)
+       automaticamente.
+  ======================================================= -->
+  <section id="resultados" class="section--resultados-compacto tom-azul reveal">
+    <div class="resultados-compacto__conteudo">
+      <span class="section__eyebrow">Resultados</span>
+      <h2>A feira em números</h2>
+
+      <div class="resultados__grid">
+        <div class="resultado__item">
+          <div class="stat__numero stat__numero--grande" data-alvo="8000">0</div>
+          <div class="stat__legenda">Visitantes na última edição</div>
+        </div>
+        <div class="resultado__item">
+          <div class="stat__numero stat__numero--grande" data-alvo="120">0</div>
+          <div class="stat__legenda">Expositores confirmados</div>
+        </div>
+        <div class="resultado__item">
+          <div class="stat__numero stat__numero--grande" data-alvo="5000000" data-tipo="moeda">R$ 0</div>
+          <div class="stat__legenda">Gerados em negócios na feira</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ======================================================
+       SEÇÃO: APOIADORES INSTITUCIONAIS (3 níveis: Ouro/Prata/Bronze)
+       Grade ESTÁTICA (sem animação), diferente do letreiro do
+       rodapé (que rola sozinho e é dos EXPOSITORES). Cada nível
+       tem um tamanho de logo diferente - Ouro maior, Bronze menor -
+       para indicar visualmente a importância de cada apoiador.
+       TROQUE/ADICIONE AQUI: as logos reais e seus links. Para
+       adicionar mais um apoiador num nível, copie um
+       <a class="apoiador__card"> inteiro dentro da grade certa.
+  ======================================================= -->
+  <section id="apoiadores" class="section tom-branco reveal">
+    <span class="section__eyebrow">Apoio</span>
+    <h2>Apoiadores institucionais</h2>
+
+    <!-- NÍVEL OURO -->
+    <div class="apoiadores__nivel">
+      <h3 class="apoiadores__nivel-titulo apoiadores__nivel-titulo--ouro">Ouro</h3>
+      <div class="apoiadores__grid apoiadores__grid--ouro">
+        <a class="apoiador__card apoiador__card--ouro" href="https://TROQUE-AQUI-URL-APOIADOR-OURO-1.com.br" target="_blank" rel="noreferrer noopener">
+          <img src="https://i.postimg.cc/XXXXXXXX/apoiador-ouro-1.png" alt="Apoiador Ouro 1" loading="lazy" />
+        </a>
+        <a class="apoiador__card apoiador__card--ouro" href="https://TROQUE-AQUI-URL-APOIADOR-OURO-2.com.br" target="_blank" rel="noreferrer noopener">
+          <img src="https://i.postimg.cc/XXXXXXXX/apoiador-ouro-2.png" alt="Apoiador Ouro 2" loading="lazy" />
+        </a>
+      </div>
+    </div>
+
+    <!-- NÍVEL PRATA -->
+    <div class="apoiadores__nivel">
+      <h3 class="apoiadores__nivel-titulo apoiadores__nivel-titulo--prata">Prata</h3>
+      <div class="apoiadores__grid apoiadores__grid--prata">
+        <a class="apoiador__card apoiador__card--prata" href="https://TROQUE-AQUI-URL-APOIADOR-PRATA-1.com.br" target="_blank" rel="noreferrer noopener">
+          <img src="https://i.postimg.cc/XXXXXXXX/apoiador-prata-1.png" alt="Apoiador Prata 1" loading="lazy" />
+        </a>
+        <a class="apoiador__card apoiador__card--prata" href="https://TROQUE-AQUI-URL-APOIADOR-PRATA-2.com.br" target="_blank" rel="noreferrer noopener">
+          <img src="https://i.postimg.cc/XXXXXXXX/apoiador-prata-2.png" alt="Apoiador Prata 2" loading="lazy" />
+        </a>
+        <a class="apoiador__card apoiador__card--prata" href="https://TROQUE-AQUI-URL-APOIADOR-PRATA-3.com.br" target="_blank" rel="noreferrer noopener">
+          <img src="https://i.postimg.cc/XXXXXXXX/apoiador-prata-3.png" alt="Apoiador Prata 3" loading="lazy" />
+        </a>
+      </div>
+    </div>
+
+    <!-- NÍVEL BRONZE -->
+    <div class="apoiadores__nivel">
+      <h3 class="apoiadores__nivel-titulo apoiadores__nivel-titulo--bronze">Bronze</h3>
+      <div class="apoiadores__grid apoiadores__grid--bronze">
+        <a class="apoiador__card apoiador__card--bronze" href="https://TROQUE-AQUI-URL-APOIADOR-BRONZE-1.com.br" target="_blank" rel="noreferrer noopener">
+          <img src="https://i.postimg.cc/XXXXXXXX/apoiador-bronze-1.png" alt="Apoiador Bronze 1" loading="lazy" />
+        </a>
+        <a class="apoiador__card apoiador__card--bronze" href="https://TROQUE-AQUI-URL-APOIADOR-BRONZE-2.com.br" target="_blank" rel="noreferrer noopener">
+          <img src="https://i.postimg.cc/XXXXXXXX/apoiador-bronze-2.png" alt="Apoiador Bronze 2" loading="lazy" />
+        </a>
+        <a class="apoiador__card apoiador__card--bronze" href="https://TROQUE-AQUI-URL-APOIADOR-BRONZE-3.com.br" target="_blank" rel="noreferrer noopener">
+          <img src="https://i.postimg.cc/XXXXXXXX/apoiador-bronze-3.png" alt="Apoiador Bronze 3" loading="lazy" />
+        </a>
+        <a class="apoiador__card apoiador__card--bronze" href="https://TROQUE-AQUI-URL-APOIADOR-BRONZE-4.com.br" target="_blank" rel="noreferrer noopener">
+          <img src="https://i.postimg.cc/XXXXXXXX/apoiador-bronze-4.png" alt="Apoiador Bronze 4" loading="lazy" />
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+
+
+  <!-- ======================================================
+       RODAPÉ: LETREIRO DE LOGOS DOS EXPOSITORES
+  ======================================================= -->
+  <footer class="footer">
+    <div class="footer__grid">
+      <!-- 
+        COLUNA 1: ENDEREÇO E CONTATO
+        TROQUE AQUI: endereço, telefone e e-mail reais da empresa.
+      -->
+      <div class="footer__coluna">
+        <h3 class="footer__coluna__titulo">Endereço</h3>
+        <p class="footer__texto">
+          Rua Guajajaras, 755 - Centro<br>
+          Belo Horizonte/MG - CEP: 30180-105
+        </p>
+        <p class="footer__texto">Telefone: (00) 0000-0000</p>
+        <p class="footer__texto">E-mail: contato@suaempresa.com.br</p>
+      </div>
+
+      <!-- 
+        COLUNA 2: MAPA DO GOOGLE
+        TROQUE AQUI: troque "SEU-ENDERECO-AQUI" pelo endereço real
+        (pode deixar com espaços, o "+" no lugar de espaço é opcional -
+        navegadores modernos aceitam espaço direto na URL também).
+        Esse é um embed simples do Google Maps, sem precisar de chave
+        de API nem conta no Google Cloud.
+      -->
+      <div class="footer__coluna footer__coluna--mapa">
+        <iframe
+          class="footer__mapa"
+          src="https://www.google.com/maps?q=Rua+Guajajaras,+755+-+Centro,+Belo+Horizonte+-+MG&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Localização da empresa no mapa"
+        ></iframe>
+      </div>
+
+      <!-- 
+        COLUNA 3: MAPA DO SITE
+        Links rápidos para as principais seções/páginas.
+      -->
+      <div class="footer__coluna">
+        <h3 class="footer__coluna__titulo">Mapa do site</h3>
+        <nav class="footer__sitemap">
+          <a href="#sobre">Sobre</a>
+          <a href="#galeria">Galeria</a>
+          <a href="videos-2026.html">Vídeos</a>
+          <a href="expositores.html">Expositores</a>
+          <a href="newsletter.html">Receber Comunicações</a>
+        </nav>
+      </div>
+    </div>
+
+    <!-- 
+      REDES SOCIAIS (ícones monocromáticos)
+      TROQUE AQUI: troque cada URL de exemplo pelo link real do
+      perfil da empresa em cada rede.
+    -->
+    <div class="footer__redes">
+      <a href="https://TROQUE-AQUI-URL-FACEBOOK.com" target="_blank" rel="noreferrer noopener" aria-label="Facebook" class="footer__rede">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12Z"/></svg>
+      </a>
+      <a href="https://TROQUE-AQUI-URL-INSTAGRAM.com" target="_blank" rel="noreferrer noopener" aria-label="Instagram" class="footer__rede">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+      </a>
+      <a href="https://TROQUE-AQUI-URL-LINKEDIN.com" target="_blank" rel="noreferrer noopener" aria-label="LinkedIn" class="footer__rede">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm7 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.7c0-1.36-.02-3.1-1.9-3.1-1.9 0-2.2 1.48-2.2 3v5.8h-4V9Z"/></svg>
+      </a>
+      <a href="https://TROQUE-AQUI-URL-YOUTUBE.com" target="_blank" rel="noreferrer noopener" aria-label="YouTube" class="footer__rede">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.6 7.2s-.2-1.5-.8-2.2c-.8-.8-1.7-.8-2.1-.9C15.9 4 12 4 12 4h0s-3.9 0-6.7.1c-.4 0-1.3.1-2.1.9-.6.7-.8 2.2-.8 2.2S2.2 9 2.2 10.7v1.6C2.2 14 2.4 15.8 2.4 15.8s.2 1.5.8 2.2c.8.8 1.9.8 2.3.9 1.7.2 7.3.2 7.5.2 0 0 3.9 0 6.7-.1.4 0 1.3-.1 2.1-.9.6-.7.8-2.2.8-2.2s.2-1.7.2-3.5v-1.6c0-1.7-.2-3.5-.2-3.5ZM9.9 14.6V8.9l5.4 2.9-5.4 2.8Z"/></svg>
+      </a>
+      <a href="https://TROQUE-AQUI-URL-TIKTOK.com" target="_blank" rel="noreferrer noopener" aria-label="TikTok" class="footer__rede">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.6 3h-3.2v12.6a2.7 2.7 0 1 1-2.3-2.7v-3.2a5.9 5.9 0 1 0 5.5 5.9V9.3a7.6 7.6 0 0 0 4.4 1.4V7.5a4.4 4.4 0 0 1-4.4-4.5Z"/></svg>
+      </a>
+    </div>
+
+    <h2 class="footer__titulo">Nossos Expositores</h2>
+
+    <div class="letreiro">
+      <!-- 
+        Só UM conjunto de logos aqui - o script.js duplica ele
+        automaticamente quantas vezes forem necessárias para
+        preencher a largura da tela e fazer o loop sem "pulo",
+        mesmo que a lista de expositores cresça ou diminua depois.
+        TROQUE AQUI: use as MESMAS URLs que você colocou na seção
+        "Expositores" lá em cima, para manter consistência.
+      -->
+      <div class="letreiro__track" id="letreiro-track">
+        <a href="https://TROQUE-AQUI-URL-EXPOSITOR-1.com.br" target="_blank" rel="noreferrer noopener">
+          <img src="https://i.postimg.cc/FRG4MPSG/LOGO-SITE.jpg" alt="Corerai" loading="lazy" />
+        </a>
+        <a href="https://TROQUE-AQUI-URL-EXPOSITOR-2.com.br" target="_blank" rel="noreferrer noopener">
+          <img src="https://i.postimg.cc/76q4Qv5Q/LOGO-SITE-(1).jpg" alt="Flaxibag" loading="lazy" />
+        </a>
+        <a href="https://TROQUE-AQUI-URL-EXPOSITOR-3.com.br" target="_blank" rel="noreferrer noopener">
+          <img src="assets/expositores/logo3.png" alt="Expositor 3" loading="lazy" />
+        </a>
+        <a href="https://TROQUE-AQUI-URL-EXPOSITOR-4.com.br" target="_blank" rel="noreferrer noopener">
+          <img src="https://i.postimg.cc/j5vbp8f6/LOGO-SITE-(2).jpg" alt="TOTVS" loading="lazy" />
+        </a>
+        <a href="https://TROQUE-AQUI-URL-EXPOSITOR-5.com.br" target="_blank" rel="noreferrer noopener">
+          <img src="https://i.postimg.cc/JnKLfTXN/LOGO-SITE-(3).jpg" alt="Endobrax" loading="lazy" />
+        </a>
+        <a href="https://TROQUE-AQUI-URL-EXPOSITOR-6.com.br" target="_blank" rel="noreferrer noopener">
+          <img src="https://i.postimg.cc/85wS2yvB/LOGO-SITE-(4).jpg" alt="Trico" loading="lazy" />
+        </a>
+        <a href="https://TROQUE-AQUI-URL-EXPOSITOR-7.com.br" target="_blank" rel="noreferrer noopener">
+          <img src="https://i.postimg.cc/1Rjt4tgd/LOGO-SITE-(5).jpg" alt="Y-MED" loading="lazy" />
+        </a>
+      </div>
+    </div>
+
+    <p class="footer__copy">&copy; 2026 Nexus. Todos os direitos reservados.</p>
+  </footer>
+
+  <!-- Botão flutuante de voltar ao topo, aparece só depois de rolar um pouco -->
+  <button class="voltar-topo" id="voltar-topo" onclick="window.scrollTo({top:0, behavior:'smooth'})" aria-label="Voltar ao topo">
+    ↑
+  </button>
+
+
+  <!-- 
+    defer = o navegador baixa o script em paralelo com o resto da
+    página, mas só executa depois que o HTML terminou de ser lido.
+    Evita que o script bloqueie a exibição da página.
+  -->
+  <script src="js/script.js" defer></script>
+
+</body>
+</html>

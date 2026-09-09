@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  TROQUE AQUI: troque "https://TROQUE-AQUI-SEU-DOMINIO.com.br" pelo
+  domínio real em TODAS as linhas <loc> abaixo, depois que o site
+  estiver publicado. Isso ajuda o Google a encontrar e indexar
+  todas as páginas do site mais rápido.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://TROQUE-AQUI-SEU-DOMINIO.com.br/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://TROQUE-AQUI-SEU-DOMINIO.com.br/rodada-de-negocios.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://TROQUE-AQUI-SEU-DOMINIO.com.br/conexao-saude.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://TROQUE-AQUI-SEU-DOMINIO.com.br/seja-um-expositor.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://TROQUE-AQUI-SEU-DOMINIO.com.br/expositores.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://TROQUE-AQUI-SEU-DOMINIO.com.br/diferenciais.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://TROQUE-AQUI-SEU-DOMINIO.com.br/fotos-2026.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://TROQUE-AQUI-SEU-DOMINIO.com.br/videos-2026.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://TROQUE-AQUI-SEU-DOMINIO.com.br/newsletter.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+</urlset>
